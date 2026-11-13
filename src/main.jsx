@@ -13,7 +13,7 @@ import './styles.scss';
 const description = 'Description that explains the value goes here. Description that explains the value goes here.';
 
 function Sidebar() {
-  const [activeItem, setActiveItem] = useState('module:#attendee');
+  const [activeItem, setActiveItem] = useState('module:#guide');
   const [menuOpen, setMenuOpen] = useState(false);
 
   function selectItem(event, item) {
@@ -26,7 +26,7 @@ function Sidebar() {
       <div className="mobile-bar">
         <strong>RainFocus Summit</strong>
         <button
-          className="menu-toggle"
+          className="nav-mobile-button"
           type="button"
           aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
           aria-expanded={menuOpen}

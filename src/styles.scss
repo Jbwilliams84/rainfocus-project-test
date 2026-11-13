@@ -164,8 +164,16 @@ main { flex: 1; min-width: 0; padding: 40px 50px 40px 48px; }
     strong { color: $heading-text; }
   }
 }
-.cards, .settings { display: grid; gap: 16px 24px; }
-.cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cards, .settings {
+  --card-width: calc((100% - 48px) / 3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  > .card {
+    flex: 0 0 var(--card-width);
+    min-width: 0;
+  }
+}
 .card, .settings { border: 1px solid $border-color; border-radius: 4px; }
 .card {
   min-height: 119px;
@@ -175,7 +183,7 @@ main { flex: 1; min-width: 0; padding: 40px 50px 40px 48px; }
   p { font-size: 12px; line-height: 15px; margin-top: 5px; }
 }
 .settings {
-  grid-template-columns: repeat(3, minmax(0, 227px));
+  --card-width: min(227px, calc((100% - 48px) / 3));
   padding: 23px 31px;
   min-height: 119px;
   .card { padding: 0; border: 0; min-height: 0; }
@@ -189,8 +197,9 @@ main { flex: 1; min-width: 0; padding: 40px 50px 40px 48px; }
   font-size: 12px;
 }
 .plus {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
   border: 2px solid $border-color;
@@ -207,7 +216,7 @@ main { flex: 1; min-width: 0; padding: 40px 50px 40px 48px; }
 }
 @media (max-width: 900px) {
   .sidebar { flex-basis: 224px; }
-  .cards, .settings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards, .settings { --card-width: calc((100% - 24px) / 2); }
 }
 @media (max-width: 680px) {
   $mobile-bar-height: 56px;
@@ -232,12 +241,15 @@ main { flex: 1; min-width: 0; padding: 40px 50px 40px 48px; }
     border-bottom: 1px solid $border-color;
     color: $heading-text;
   }
-  .menu-toggle {
-    display: grid;
-    place-items: center;
+  .nav-mobile-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 44px;
     height: 44px;
     border: 0;
+    background-color: #FFFFFF;
+    color: $link-color;
     span, span::before, span::after {
       width: 22px;
       height: 2px;
@@ -281,5 +293,5 @@ main { flex: 1; min-width: 0; padding: 40px 50px 40px 48px; }
   .event-logo { width: 64px; height: 64px; }
 }
 @media (max-width: 440px) {
-  .cards, .settings { grid-template-columns: 1fr; }
+  .cards, .settings { --card-width: 100%; }
 }
