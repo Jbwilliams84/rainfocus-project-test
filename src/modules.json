@@ -1,0 +1,16 @@
+[
+  { "label": "Guide", "href": "#guide" },
+  {
+    "label": "Attendees",
+    "href": "#attendee",
+    "children": [
+      { "label": "Attendees", "href": "#attendee" },
+      { "label": "Attendee types", "href": "#attendee-types" },
+      { "label": "Packages", "href": "#packages" },
+      { "label": "Reg codes", "href": "#reg-codes" },
+      { "label": "Discounts", "href": "#discounts" }
+    ]
+  },
+  { "label": "Content", "href": "#content" },
+  { "label": "Exhibitors", "href": "#exhibitors" }
+]
