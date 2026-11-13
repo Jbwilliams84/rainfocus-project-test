@@ -294,4 +294,6 @@ main { flex: 1; min-width: 0; padding: 40px 50px 40px 48px; }
 }
 @media (max-width: 440px) {
   .cards, .settings { --card-width: 100%; }
+  .event-header .edit { margin-left: 0; }
+  .settings { padding-inline: 18px; }
 }
